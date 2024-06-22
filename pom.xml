@@ -61,7 +61,12 @@
 			<artifactId>spring-security-crypto</artifactId>
 		</dependency>
 	</dependencies>
-
+	<repositories>
+		<repository>
+			<id>itextpdf</id>
+			<url>https://repo.itextsupport.com/releases</url>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>
