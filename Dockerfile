@@ -5,10 +5,10 @@ FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # Copiar el archivo WAR de la aplicación al directorio de trabajo
-COPY target/VpetsoftApp-0.0.1-SNAPSHOT.war app.jar
+COPY target/VpetsoftApp-0.0.1-SNAPSHOT.jar app.jar
 
 # Exponer el puerto en el que la aplicación se ejecutará
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
