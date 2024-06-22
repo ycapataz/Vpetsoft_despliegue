@@ -2,7 +2,6 @@ package com.Vpetsoft.VpetsoftApp.controllers;
 
 import com.Vpetsoft.VpetsoftApp.Business.AppointmentBusiness;
 import com.Vpetsoft.VpetsoftApp.dto.AppointmentDto;
-import com.Vpetsoft.VpetsoftApp.service.PdfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,8 +21,6 @@ public class AppointmentController {
     @Autowired
     AppointmentBusiness appointmentBusiness;
 
-    @Autowired
-    private PdfService pdfService;
 
 //////////////////////////////////////////////////////////////////////////////
 // Método para obtener todas las citas
@@ -108,20 +105,5 @@ public class AppointmentController {
             // con estado HTTP 500 (INTERNAL_SERVER_ERROR) y un mensaje de error detallado
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar la cita: " + e.getMessage());
         }
-    }
-
-    @GetMapping("/pdf")
-    public ResponseEntity<byte[]> getAllAppointmentsPdf() {
-        List<AppointmentDto> appointments = appointmentBusiness.findAll();
-        ByteArrayInputStream bis = pdfService.generatePdf(appointments);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "inline; filename=appointments.pdf");
-
-        return ResponseEntity
-                .ok()
-                .headers(headers)
-                .contentType(MediaType.APPLICATION_PDF)
-                .body(bis.readAllBytes());
     }
 }
