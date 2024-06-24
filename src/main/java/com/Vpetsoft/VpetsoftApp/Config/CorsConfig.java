@@ -11,7 +11,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000") // Permitir solo el origen de desarrollo
+                .allowedOrigins("https://vpetsoft.netlify.app") // Permitir solo el origen de desarrollo
                 .allowedMethods("GET", "POST", "PUT", "DELETE") // Métodos HTTP permitidos
                 .allowedHeaders("*"); // Encabezados permitidos
     }
