@@ -64,7 +64,7 @@ public class PasswordResetService {
         message.setTo(employee.getMail());
         message.setSubject("Solicitud de Restablecimiento de Contraseña");
         message.setText("Para restablecer tu contraseña, haz clic en el siguiente enlace:\n" +
-                "http://localhost:3000/reset-password?token=" + employee.getResetToken());
+                "https://vpetsoft.netlify.app/reset-password?token=" + employee.getResetToken());
         mailSender.send(message);
     }
 }

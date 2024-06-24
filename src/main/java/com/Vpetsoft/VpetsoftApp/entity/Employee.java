@@ -44,7 +44,7 @@ public class Employee {
     private String birthdayDate;
 
     @Column(name = "cedempleado", length = 11)
-    private int dni;
+    private Long dni;
 
     @Column(name = "reset_token")
     private String resetToken;
